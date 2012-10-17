@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+
+*.tmproj
+.tm_properties
+*.sublime-project
+*.sublime-workspace
+*.swp
+*~
+
+*.gem

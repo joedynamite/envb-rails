@@ -1,0 +1,16 @@
+PATH
+  remote: .
+  specs:
+    envb-rails (0.0.1)
+      haml
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    haml (3.1.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  envb-rails!

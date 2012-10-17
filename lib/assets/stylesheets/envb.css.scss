@@ -1,0 +1,52 @@
+/* Color Variables */
+$envb_gray:                   #969896;
+$envb_red:                    #cc6666;
+$envb_orange:                 #de935f;
+$envb_yellow:                 #f0c674;
+$envb_green:                  #b5bd68;
+$envb_aqua:                   #8abeb7;
+$envb_blue:                   #81a2be;
+$envb_purple:                 #b294bb;
+
+/* Mixins */
+@mixin set-color($color) {
+  background-color:           $color;
+  border-color:               darken($color, 20%);
+}
+
+/* Styles */
+html { padding-bottom:        25px; }
+
+#envb {
+  @include                    set-color($envb_gray);
+
+  border-top:                 1px solid;
+  bottom:                     0;
+  color:                      #fff;
+  left:                       0;
+  position:                   fixed;
+  text: {
+    align:                    center;
+    shadow:                   0 1px 1px #000;
+    transform:                uppercase;
+  }
+  width:                      100%;
+  z-index:                    100;
+  -webkit-font-smoothing:     antialiased;
+
+  p {
+    font: {
+      family:                 'Helvetica Neue', Helvetica, sans-serif;
+      size:                   14px;
+      weight:                 bold;
+    }
+    line-height:              24px;
+    margin:                   0;
+  }
+
+  /* Environment Color Settings */
+  &.development { @include    set-color($envb_purple); }
+  &.acceptance { @include     set-color($envb_aqua); }
+  &.staging { @include        set-color($envb_orange); }
+  &.production { @include     set-color($envb_red); }
+}
