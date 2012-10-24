@@ -44,7 +44,8 @@ Currently envb-rails will colorize the banners for the following environments, `
 
 ## Attribution
 
-Banner colors are *borrowed* from the Tomorrow Night theme in [chriskempson/tomorrow-theme](https://github.com/chriskempson/tomorrow-theme).
+- Banner colors are from [Chris Kempson's Tomorrow Night theme](https://github.com/chriskempson/tomorrow-theme).
+- Mini Browser in Screenshot is from [Didi Medina on Dribbble](http://dribbble.com/shots/430263-FREE-PSD-Mini-Browser).
 
 ----
 
