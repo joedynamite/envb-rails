@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    envb-rails (0.0.1)
+    envb-rails (0.0.2)
       haml
 
 GEM
