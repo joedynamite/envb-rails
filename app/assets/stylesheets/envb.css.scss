@@ -9,7 +9,7 @@ $envb_blue:                   #81a2be;
 $envb_purple:                 #b294bb;
 
 /* Mixins */
-@mixin set-color($color) {
+@mixin banner-color($color) {
   background-color:           $color;
   border-color:               darken($color, 20%);
 }
@@ -18,7 +18,7 @@ $envb_purple:                 #b294bb;
 html { padding-bottom:        25px; }
 
 #envb {
-  @include                    set-color($envb_gray);
+  @include                    banner-color($envb_gray);
 
   border-top:                 1px solid;
   bottom:                     0;
@@ -45,8 +45,8 @@ html { padding-bottom:        25px; }
   }
 
   /* Environment Color Settings */
-  &.development { @include    set-color($envb_purple); }
-  &.acceptance { @include     set-color($envb_aqua); }
-  &.staging { @include        set-color($envb_orange); }
-  &.production { @include     set-color($envb_red); }
+  &.development { @include banner-color($envb_purple); }
+  &.acceptance  { @include banner-color($envb_aqua); }
+  &.staging     { @include banner-color($envb_orange); }
+  &.production  { @include banner-color($envb_red); }
 }
