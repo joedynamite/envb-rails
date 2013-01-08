@@ -1,0 +1,15 @@
+@import 'envb_mixins';
+
+/* Color presets are $envb_gray, $envb_red, $envb_orange, $envb_yellow,
+ * $envb_green, $envb_aqua, $envb_blue, and $envb_purple. Or you can pass in a
+ * custom color value
+ */
+
+#envb {
+  /* default */   @include banner-color($envb_gray);
+
+  &.development { @include banner-color($envb_purple); }
+  &.acceptance  { @include banner-color($envb_aqua); }
+  &.staging     { @include banner-color($envb_orange); }
+  &.production  { @include banner-color($envb_red); }
+}

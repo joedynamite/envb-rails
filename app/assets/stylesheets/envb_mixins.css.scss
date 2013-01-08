@@ -1,0 +1,15 @@
+/* Color Variables */
+$envb_gray:                   #969896;
+$envb_red:                    #cc6666;
+$envb_orange:                 #de935f;
+$envb_yellow:                 #f0c674;
+$envb_green:                  #b5bd68;
+$envb_aqua:                   #8abeb7;
+$envb_blue:                   #81a2be;
+$envb_purple:                 #b294bb;
+
+/* Mixins */
+@mixin banner-color($color) {
+  background-color:           $color;
+  border-color:               darken($color, 20%);
+}
