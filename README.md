@@ -38,9 +38,11 @@ Or to alternatively have it render on production as well, you can pass it an emp
 
     <%= envb([]) %>
 
-## Limitations
+## Customization
 
-Currently envb-rails will colorize the banners for the following environments, `development` (purple), `acceptance` (aqua), `staging` (orange), and `production` (red). Other custom named environments will be a default (gray) color. In future versions I will make it easier to customize/replace these defaults.
+By default envb-rails will colorize the environment banners in the following combinations, development:purple, acceptance:aqua, staging:orange, and production:red. Other custom named environments will be a default (gray) color.
+
+If you would like to customize the colors or add environment names you can run `rails generate envb:stylesheet`. Inside the generated `envb_custom.css.scss` file you will be able to specify colors and override other default styles if you so choose.
 
 ## Attribution
 
@@ -49,4 +51,4 @@ Currently envb-rails will colorize the banners for the following environments, `
 
 ----
 
-Copyright &copy; 2012 Joe Bilt.
+Copyright &copy; 2013 Joe Bilt.
