@@ -1,4 +1,4 @@
-/* Color Variables */
+// Variables
 $envb_gray:                   #969896;
 $envb_red:                    #cc6666;
 $envb_orange:                 #de935f;
@@ -8,7 +8,11 @@ $envb_aqua:                   #8abeb7;
 $envb_blue:                   #81a2be;
 $envb_purple:                 #b294bb;
 
-/* Mixins */
+// Sets a solid background color, and a darker border color.
+//
+// $color - The color value to use for the background and border.
+//
+// Compatible in all browser.
 @mixin banner-color($color: $envb_gray) {
   background-color:           $color;
   border-color:               darken($color, 20%);

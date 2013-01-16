@@ -1,6 +1,13 @@
 @import 'envb_mixins';
 
-/* Styles */
+// A fixed gray banner used for displaying your current Rails environment name.
+//
+// .development - Changes banner color to purple.
+// .acceptance  - Changes banner color to aqua.
+// .staging     - Changes banner color to orange.
+// .production  - Changes banner color to red.
+//
+// No styleguide reference.
 html { padding-bottom:        25px; }
 
 #envb {
@@ -30,7 +37,6 @@ html { padding-bottom:        25px; }
     margin:                   0;
   }
 
-  /* Environment Color Settings */
   &.development { @include banner-color($envb_purple); }
   &.acceptance  { @include banner-color($envb_aqua); }
   &.staging     { @include banner-color($envb_orange); }
