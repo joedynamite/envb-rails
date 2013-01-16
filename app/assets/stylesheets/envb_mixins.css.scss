@@ -9,7 +9,7 @@ $envb_blue:                   #81a2be;
 $envb_purple:                 #b294bb;
 
 /* Mixins */
-@mixin banner-color($color) {
+@mixin banner-color($color: $envb_gray) {
   background-color:           $color;
   border-color:               darken($color, 20%);
 }
