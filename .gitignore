@@ -1,6 +1,8 @@
 .DS_Store
 Thumbs.db
 
+Gemfile.lock
+
 *.tmproj
 .tm_properties
 *.sublime-project
