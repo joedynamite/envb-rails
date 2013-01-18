@@ -9,7 +9,7 @@ Gem::Specification.new do |g|
   g.summary       = 'A simple way to display your Rails environment name.'
   g.description   = 'A banner that displays in your layout containing the Rails environment name.'
   g.files         = `git ls-files`.split("\n")
-  g.require_paths = ['lib']
+  g.require_paths = %w(lib)
 
   g.add_dependency 'haml'
 end

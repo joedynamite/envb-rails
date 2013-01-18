@@ -32,7 +32,7 @@ By default the `envb` helper method will not render a banner on the production e
 
 The `envb` method can take an optional array of environment names you don't want the banner to render on. For example, to exclude on production and staging you can use:
 
-    <%= envb(['staging', 'production']) %>
+    <%= envb(%w(staging production)) %>
 
 Or to alternatively have it render on production as well, you can pass it an empty array:
 
