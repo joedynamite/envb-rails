@@ -16,9 +16,7 @@ module Envb
       #
       # Returns no value.
       def envb(except = %w(production))
-        unless except.include?(::Rails.env)
-          render partial: 'envb/banner', locals: { env: ::Rails.env }
-        end
+        ENV['envb-hide-environments'] = except.join(' ')
       end
     end
   end

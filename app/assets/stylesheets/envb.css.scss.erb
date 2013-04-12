@@ -1,5 +1,9 @@
 @import 'envb_mixins';
 
+$envb_development:       $envb_purple;
+$envb_acceptance:          $envb_aqua;
+$envb_staging:           $envb_orange;
+$envb_production:           $envb_red;
 // A fixed gray banner used for displaying your current Rails environment name.
 //
 // .development - Changes banner color to purple.
@@ -8,13 +12,31 @@
 // .production  - Changes banner color to red.
 //
 // No styleguide reference.
+
+<% exclusion_environments = ENV['envb-hide-environments'].split %>
+<% environment = ::Rails.env %>
+
+<% if exclusion_environments %>
+  <% hide = exclusion_environments.include? environment %>
+<% else %>
+  <% hide = %w(production).include? environment %>
+<% end %>
+
+<% if %w(development acceptance staging production).include? environment %>
+  <% banner_color = '$envb_' + environment %>
+<% else %>
+  <% banner_color = '$envb_gray' %>
+<% end %>
+
+<% styling = <<-EOS
 html { padding-bottom:        25px; }
 
-#envb {
-  @include                    banner-color;
+body:after {
+  position: fixed;
+  bottom: 0;
+  content: "#{environment}";
 
   border-top:                 1px solid;
-  bottom:                     0;
   color:                      #fff;
   left:                       0;
   position:                   fixed;
@@ -27,18 +49,17 @@ html { padding-bottom:        25px; }
   z-index:                    100;
   -webkit-font-smoothing:     antialiased;
 
-  p {
-    font: {
+  font: {
       family:                 'Helvetica Neue', Helvetica, sans-serif;
       size:                   14px;
       weight:                 bold;
-    }
-    line-height:              24px;
-    margin:                   0;
   }
+  line-height:              24px;
+  margin:                   0;
 
-  &.development { @include banner-color($envb_purple); }
-  &.acceptance  { @include banner-color($envb_aqua); }
-  &.staging     { @include banner-color($envb_orange); }
-  &.production  { @include banner-color($envb_red); }
+  @include banner-color(#{banner_color})
 }
+EOS
+%>
+
+<%= styling unless hide %>
