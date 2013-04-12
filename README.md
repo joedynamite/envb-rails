@@ -20,23 +20,19 @@ Require the envb stylesheet at the top of your asset manifest.
     *= require_self
     ...
 
-Use the envb helper method at the bottom of your layout right before the closing `<body>` tag.
-
-    ...
-      <%= envb %>
-    </body>
+That's it!
 
 ### Excluding environment names
 
 By default the `envb` helper method will not render a banner on the production environment.
 
-The `envb` method can take an optional array of environment names you don't want the banner to render on. For example, to exclude on production and staging you can use:
+The `envb` method can take an optional array of environment names you don't want the banner to render on. For example, to exclude on production and staging you can use the following in your application template:
 
-    <%= envb(%w(staging production)) %>
+    <% envb(%w(staging production)) %>
 
 Or to alternatively have it render on production as well, you can pass it an empty array:
 
-    <%= envb([]) %>
+    <% envb([]) %>
 
 ## Customization
 
