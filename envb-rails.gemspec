@@ -10,6 +10,4 @@ Gem::Specification.new do |g|
   g.description   = 'A banner that displays in your layout containing the Rails environment name.'
   g.files         = `git ls-files`.split("\n") - %w(.gitignore)
   g.require_paths = %w(lib)
-
-  g.add_dependency 'haml'
 end

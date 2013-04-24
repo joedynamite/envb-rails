@@ -20,7 +20,7 @@ Require the envb stylesheet at the top of your asset manifest.
     *= require_self
     ...
 
-That's it!
+As long as you don't want to customize any default behavior, that's it!
 
 ### Excluding environment names
 
@@ -34,6 +34,8 @@ Or to alternatively have it render on production as well, you can use an empty a
 
     Envb::Rails.options[:excludes] = []
 
+After creating or changing this initializer you must recompile your assets. In development mode this is as easy as running `rake assets:clean`. For non-local environments, most deployment systems will recompile with every deploy or you should be able to set them to.
+
 ## Customization
 
 By default envb-rails will colorize the environment banners in the following combinations, development:purple, acceptance:aqua, staging:orange, and production:red. Other custom named environments will be a default (gray) color.
@@ -46,7 +48,7 @@ If you would like to customize the colors or add environment names you can furth
         one_more: '$envb_green'
     })
 
-You should be able to use any valid CSS color model to specify the color of the banner. You may also use the built in envb color variable names which are:
+As you can see, you should be able to use any valid CSS color model to specify the color of the banner. You may also use the built in envb color variables which are:
 
     $envb_gray:                   #969896;
     $envb_red:                    #cc6666;
@@ -56,6 +58,8 @@ You should be able to use any valid CSS color model to specify the color of the 
     $envb_aqua:                   #8abeb7;
     $envb_blue:                   #81a2be;
     $envb_purple:                 #b294bb;
+
+As with excluding environments, when you change the initializer you must recompile your assets.
 
 ## Attribution
 
