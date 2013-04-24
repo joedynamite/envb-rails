@@ -24,15 +24,15 @@ That's it!
 
 ### Excluding environment names
 
-By default the `envb` helper method will not render a banner on the production environment.
+By default envb-rails will not render a banner on the production environment.
 
-The `envb` method can take an optional array of environment names you don't want the banner to render on. For example, to exclude on production and staging you can use the following in your application template:
+To exclude the banner from other environments you can create `config/initializers/envb.rb` and modify the array of excluded environment names. For example, if you wanted to exclude on staging as well as production:
 
-    <% envb(%w(staging production)) %>
+    Envb::Rails.options[:excludes] = %w(production staging)
 
-Or to alternatively have it render on production as well, you can pass it an empty array:
+Or to alternatively have it render on production as well, you can use an empty array:
 
-    <% envb([]) %>
+    Envb::Rails.options[:excludes] = []
 
 ## Customization
 

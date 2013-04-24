@@ -13,7 +13,7 @@ $envb_production:           $envb_red;
 //
 // No styleguide reference.
 
-<% exclusion_environments = ENV['envb-hide-environments'].split %>
+<% exclusion_environments = Envb::Rails.options[:excludes] %>
 <% environment = ::Rails.env %>
 
 <% if exclusion_environments %>
