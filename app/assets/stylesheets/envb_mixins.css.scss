@@ -13,7 +13,7 @@ $envb_purple:                 #b294bb;
 // $color - The color value to use for the background and border.
 //
 // Compatible in all browser.
-@mixin banner-color($color: $envb_gray) {
+@mixin colors($color: $envb_gray) {
   background-color:           $color;
   border-color:               darken($color, 20%);
 }

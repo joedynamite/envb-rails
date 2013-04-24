@@ -1,9 +1,20 @@
+<% unless Envb::Rails.options[:excludes].include?(::Rails.env) %>
+
 @import 'envb_mixins';
 
-$envb_development:       $envb_purple;
-$envb_acceptance:          $envb_aqua;
-$envb_staging:           $envb_orange;
-$envb_production:           $envb_red;
+<%
+env_color = case ::Rails.env
+  when 'development'
+    '$envb_purple'
+  when 'acceptance'
+    '$envb_aqua'
+  when 'staging'
+    '$envb_orange'
+  when 'production'
+    '$envb_red'
+end
+%>
+
 // A fixed gray banner used for displaying your current Rails environment name.
 //
 // .development - Changes banner color to purple.
@@ -12,54 +23,37 @@ $envb_production:           $envb_red;
 // .production  - Changes banner color to red.
 //
 // No styleguide reference.
+html {
+  padding-bottom:               25px;
 
-<% exclusion_environments = Envb::Rails.options[:excludes] %>
-<% environment = ::Rails.env %>
+  &:after {
+    @include                    colors(<%= env_color %>);
 
-<% if exclusion_environments %>
-  <% hide = exclusion_environments.include? environment %>
-<% else %>
-  <% hide = %w(production).include? environment %>
-<% end %>
-
-<% if %w(development acceptance staging production).include? environment %>
-  <% banner_color = '$envb_' + environment %>
-<% else %>
-  <% banner_color = '$envb_gray' %>
-<% end %>
-
-<% styling = <<-EOS
-html { padding-bottom:        25px; }
-
-body:after {
-  position: fixed;
-  bottom: 0;
-  content: "#{environment}";
-
-  border-top:                 1px solid;
-  color:                      #fff;
-  left:                       0;
-  position:                   fixed;
-  text: {
-    align:                    center;
-    shadow:                   0 1px 1px #000;
-    transform:                uppercase;
+    border-top: {
+      style:                    solid;
+      width:                    1px;
+    }
+    bottom:                     0;
+    color:                      #fff;
+    content:                    '<%= ::Rails.env %>';
+    font: {
+      family:                   'Helvetica Neue', Helvetica, sans-serif;
+      size:                     14px;
+      weight:                   bold;
+    }
+    left:                       0;
+    line-height:                24px;
+    margin:                     0;
+    position:                   fixed;
+    text: {
+      align:                    center;
+      shadow:                   0 1px 1px #000;
+      transform:                uppercase;
+    }
+    width:                      100%;
+    z-index:                    100;
+    -webkit-font-smoothing:     antialiased;
   }
-  width:                      100%;
-  z-index:                    100;
-  -webkit-font-smoothing:     antialiased;
-
-  font: {
-      family:                 'Helvetica Neue', Helvetica, sans-serif;
-      size:                   14px;
-      weight:                 bold;
-  }
-  line-height:              24px;
-  margin:                   0;
-
-  @include banner-color(#{banner_color})
 }
-EOS
-%>
 
-<%= styling unless hide %>
+<% end %>
