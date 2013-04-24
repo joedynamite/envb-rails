@@ -14,6 +14,14 @@ $envb_purple:                 #b294bb;
 //
 // Compatible in all browser.
 @mixin colors($color: $envb_gray) {
+  $gradient_top:              lighten($color, 5%);
+  $gradient_bottom:           darken($color, 5%);
+
   background-color:           $color;
+  background-image:           -ms-linear-gradient(bottom, $gradient_bottom 0%, $gradient_top 100%);
+  background-image:           -moz-linear-gradient(bottom, $gradient_bottom 0%, $gradient_top 100%);
+  background-image:           -webkit-linear-gradient(bottom, $gradient_bottom 0%, $gradient_top 100%);
+  background-image:           -webkit-gradient(linear, left bottom, left top, color-stop(0, $gradient_bottom), color-stop(1, $gradient_top));
+  background-image:           linear-gradient(bottom, $gradient_bottom 0%, $gradient_top 100%);
   border-color:               darken($color, 20%);
 }
