@@ -2,19 +2,6 @@
 
 @import 'envb_mixins';
 
-<%
-env_color = case ::Rails.env
-  when 'development'
-    '$envb_purple'
-  when 'acceptance'
-    '$envb_aqua'
-  when 'staging'
-    '$envb_orange'
-  when 'production'
-    '$envb_red'
-end
-%>
-
 // A fixed gray banner used for displaying your current Rails environment name.
 //
 // .development - Changes banner color to purple.
@@ -27,7 +14,7 @@ html {
   padding-bottom:               29px;
 
   &:after {
-    @include                    colors(<%= env_color %>);
+    @include                    colors(<%= Envb::Rails.options[:colors][::Rails.env.to_sym] || '$envb_gray' %>);
 
     border-top: {
       style:                    solid;

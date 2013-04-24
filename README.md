@@ -38,7 +38,24 @@ Or to alternatively have it render on production as well, you can use an empty a
 
 By default envb-rails will colorize the environment banners in the following combinations, development:purple, acceptance:aqua, staging:orange, and production:red. Other custom named environments will be a default (gray) color.
 
-If you would like to customize the colors or add environment names you can run `rails generate envb:stylesheet`. Inside the generated `envb_custom.css.scss` file you will be able to specify colors and override other default styles if you so choose.
+If you would like to customize the colors or add environment names you can further modify your `config/initializers/envb.rb` file with the following:
+
+    Envb::Rails.options[:colors].update({
+        custom_name: '#xxxxxx',
+        another_name: 'rgb(x, x, x)',
+        one_more: '$envb_green'
+    })
+
+You should be able to use any valid CSS color model to specify the color of the banner. You may also use the built in envb color variable names which are:
+
+    $envb_gray:                   #969896;
+    $envb_red:                    #cc6666;
+    $envb_orange:                 #de935f;
+    $envb_yellow:                 #f0c674;
+    $envb_green:                  #b5bd68;
+    $envb_aqua:                   #8abeb7;
+    $envb_blue:                   #81a2be;
+    $envb_purple:                 #b294bb;
 
 ## Attribution
 
